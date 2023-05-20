@@ -130,7 +130,8 @@ module.exports.forgetPassword = async (req, res) => {
     if(isCorrectPassword){
       return res.status(200).send(false);
     }else{
-      admin.password = req.body.password;
+      let hashedPassword = await bcrypt.hash(req.body.password, 12);
+      admin.password = hashedPassword;
       const userUpdated = await adminService.updateAdminAccount(admin);
       return res.status(200).send(true);
     }
