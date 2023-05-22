@@ -29,8 +29,8 @@ module.exports.addNewDoctor = async (req, res) => {
 
 module.exports.getAllDoctors = async (req, res) => {
   try {
-    const admins = await doctorService.FindAllDoctors();
-    return res.send(admins);
+    const doctors = await doctorService.FindAllDoctors();
+    return res.send({admins: doctors});
   } catch (err) {
     return res.status(500).send({
       error: err.message
