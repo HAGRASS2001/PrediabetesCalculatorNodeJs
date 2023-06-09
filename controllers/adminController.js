@@ -53,7 +53,7 @@ module.exports.updateAdminAccount = async (req, res) => {
         role: req.body.role
       };
       
-    const admin = await adminService.getAdminByUsername(adminInfo.username);
+    const admin = await adminService.findAdminById(adminInfo._id);
 
 
       if(adminInfo.password != ""){

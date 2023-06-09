@@ -54,8 +54,6 @@ module.exports.Login = async (req, res) => {
     if (user == null) {
       return res.status(401).send(false);
     }else{
-
-      
       return res.send({
         user: user
       });

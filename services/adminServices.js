@@ -93,3 +93,12 @@ module.exports.getAdminByUsername = async(Username) => {
       throw new Error('Error logging in, please try again later.');
   }
 };
+
+module.exports.findAdminById = async (adminID) => {
+  try {
+    const user = await userModel.findById(adminID);
+    return user;
+  } catch (err) {
+    throw new Error('Could not find admin.');
+  }
+};
